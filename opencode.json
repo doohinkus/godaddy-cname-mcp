@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "godaddy-dns": {
+      "type": "local",
+      "command": ["godaddy-dns-mcp"],
+      "environment": {
+        "GODADDY_API_KEY": "{env:GODADDY_API_KEY}",
+        "GODADDY_API_SECRET": "{env:GODADDY_API_SECRET}",
+        "GODADDY_SHOPPER_ID": "{env:GODADDY_SHOPPER_ID}",
+        "GODADDY_API_ENV": "production"
+      },
+      "enabled": true
+    }
+  }
+}
