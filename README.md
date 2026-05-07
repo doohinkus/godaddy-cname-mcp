@@ -52,33 +52,92 @@ npm start
 
 ### Configuring with MCP Clients
 
-**Claude Desktop** - Add to `claude_desktop_config.json`:
+#### Claude Desktop
+
+1. Open Claude Desktop settings and edit `claude_desktop_config.json`:
+   - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+   - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+2. Add the following configuration:
 ```json
 {
   "mcpServers": {
     "godaddy-dns": {
       "command": "node",
-      "args": ["/path/to/godaddy-dns-mcp/dist/index.js"],
+      "args": ["/absolute/path/to/godaddy-dns-mcp/dist/index.js"],
       "env": {
-        "GODADDY_API_KEY": "your_key",
-        "GODADDY_API_SECRET": "your_secret"
+        "GODADDY_API_KEY": "your_api_key_here",
+        "GODADDY_API_SECRET": "your_api_secret_here"
       }
     }
   }
 }
 ```
 
-**Gemini CLI** - Add to your MCP config:
+3. Restart Claude Desktop
+
+4. Example usage in Claude:
+   ```
+   Add a subdomain "blog" pointing to "target.example.com" for mydomain.com
+   ```
+
+---
+
+#### Gemini CLI
+
+1. Create or edit your Gemini CLI config file:
+   - Location: `~/.gemini/config.json` (or your project's config)
+
+2. Add the MCP server configuration:
 ```json
 {
   "mcpServers": {
     "godaddy-dns": {
       "command": "node",
-      "args": ["/path/to/godaddy-dns-mcp/dist/index.js"]
+      "args": ["/absolute/path/to/godaddy-dns-mcp/dist/index.js"]
     }
   }
 }
 ```
+
+3. Start Gemini CLI and use the tools:
+   ```bash
+   gemini
+   > Use the addCNAMERecord tool to add a subdomain "api" pointing to "app.example.com" for mydomain.com
+   ```
+
+---
+
+#### OpenCode
+
+OpenCode automatically loads the `godaddy-subdomain` skill when you run `opencode` in this directory.
+
+1. Navigate to the project directory:
+   ```bash
+   cd /path/to/godaddy-dns-mcp
+   ```
+
+2. Start OpenCode:
+   ```bash
+   opencode
+   ```
+
+3. Example usage in OpenCode:
+   ```
+   Add a subdomain blog pointing to target.example.com for mydomain.com
+   ```
+   
+   ```
+   Delete the subdomain blog from mydomain.com
+   ```
+   
+   ```
+   Add a CNAME record
+   ```
+
+The skill will prompt for any missing information and confirm deletions before proceeding.
+
+---
 
 ### Available MCP Tools
 
@@ -86,16 +145,6 @@ npm start
 |------|-------------|
 | `addCNAMERecord` | Add a CNAME record (domain, subdomain, target, ttl?) |
 | `deleteCNAMERecord` | Delete a CNAME record with confirmation (domain, subdomain, confirm?) |
-
-## OpenCode Skill
-
-The `godaddy-subdomain` skill is automatically loaded when you run opencode in this directory. Simply ask:
-
-- "Add a subdomain blog pointing to target.example.com for mydomain.com"
-- "Delete the subdomain blog from mydomain.com"
-- "Add a CNAME record"
-
-The skill will prompt for any missing information and confirm deletions before proceeding.
 
 ## Environment Variables
 
