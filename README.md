@@ -6,25 +6,26 @@ Manage GoDaddy DNS CNAME records via MCP server and OpenCode skill.
 
 1. Clone this repo and set up credentials:
 
-   ```bash
-   git clone <repo-url> godaddy-dns-mcp
-   cd godaddy-dns-mcp
-   cp .env.example .env
-   ```
+    ```bash
+    git clone <repo-url> godaddy-dns-mcp
+    cd godaddy-dns-mcp
+    cp .env.example .env
+    ```
 
 2. Edit `.env` with your GoDaddy API credentials:
 
-   ```bash
-   GODADDY_API_KEY=your_api_key_here
-   GODADDY_API_SECRET=your_api_secret_here
-   # Optional:
-   GODADDY_API_ENV=production  # or "ote" for testing
-   ```
+    ```bash
+    GODADDY_API_KEY=your_api_key_here
+    GODADDY_API_SECRET=your_api_secret_here
+    # Optional:
+    GODADDY_API_ENV=production  # or "ote" for testing
+    ```
 
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
+3. Install dependencies and build:
+    ```bash
+    npm install
+    npm run build
+    ```
 
 ## MCP Server Usage
 
@@ -41,7 +42,7 @@ npm start
   "mcpServers": {
     "godaddy-dns": {
       "command": "node",
-      "args": ["/path/to/godaddy-dns-mcp/index.js"],
+      "args": ["/path/to/godaddy-dns-mcp/dist/index.js"],
       "env": {
         "GODADDY_API_KEY": "your_key",
         "GODADDY_API_SECRET": "your_secret"
@@ -57,7 +58,7 @@ npm start
   "mcpServers": {
     "godaddy-dns": {
       "command": "node",
-      "args": ["/path/to/godaddy-dns-mcp/index.js"]
+      "args": ["/path/to/godaddy-dns-mcp/dist/index.js"]
     }
   }
 }
