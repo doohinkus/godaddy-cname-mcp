@@ -27,6 +27,22 @@ Manage GoDaddy DNS CNAME records via MCP server and OpenCode skill.
     npm run build
     ```
 
+## Development
+
+```bash
+# Run in development mode with hot reload
+npm run dev
+
+# Run tests
+npm test
+
+# Run linter
+npm run lint
+
+# Type checking
+npm run typecheck
+```
+
 ## MCP Server Usage
 
 Run the MCP server directly:
@@ -90,3 +106,14 @@ The skill will prompt for any missing information and confirm deletions before p
 | `GODADDY_API_ENV`    | No       | `production` (default) or `ote` for test environment |
 
 Get API credentials at https://developer.godaddy.com/keys/
+
+## CI/CD
+
+This project uses GitHub Actions for continuous integration. The workflow runs on every push and pull request to `main`:
+
+- Linting with ESLint
+- Type checking with TypeScript
+- Unit tests with Vitest
+- Build verification
+
+See [`.github/workflows/ci.yml`](.github/workflows/ci.yml) for details.
