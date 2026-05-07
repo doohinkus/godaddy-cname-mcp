@@ -1,8 +1,8 @@
-![OpenCode Logo](open_code.png)
-
 # GoDaddy DNS Subdomain Management
 
 Manage GoDaddy DNS CNAME records via MCP server and OpenCode skill.
+
+![OpenCode Logo](open_code.png)
 
 ## Quick Start
 
