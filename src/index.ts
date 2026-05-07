@@ -1,7 +1,6 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { registerAddCNAMERecordTool, registerDeleteCNAMERecordTool } from "./tools/dns.js";
-import { config } from "./utils/config.js";
 
 const server = new McpServer({
   name: "godaddy-dns-mcp",

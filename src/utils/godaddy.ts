@@ -1,4 +1,4 @@
-import { config, BASE_URL, AUTH_HEADER } from "./config.js";
+import { BASE_URL, AUTH_HEADER } from "./config.js";
 import type { CNAMERecord, GoDaddyResponse } from "../types/index.js";
 
 interface RequestOptions {
