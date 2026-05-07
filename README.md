@@ -52,23 +52,34 @@ npm start
 
 ### Configuring with MCP Clients
 
+**Prerequisites:** Set environment variables in your shell profile (`~/.bashrc`, `~/.zshrc`, etc.):
+```bash
+export GODADDY_API_KEY="your_api_key_here"
+export GODADDY_API_SECRET="your_api_secret_here"
+# Optional: export GODADDY_API_ENV="production"  # or "ote" for testing
+```
+
+**Optional:** Install globally for easier access:
+```bash
+npm install -g godaddy-dns-mcp
+# Then use "godaddy-dns-mcp" command instead of "node /path/to/dist/index.js"
+```
+
+---
+
 #### Claude Desktop
 
 1. Open Claude Desktop settings and edit `claude_desktop_config.json`:
    - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
    - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
-2. Add the following configuration:
+2. Add the following configuration (uses environment variables):
 ```json
 {
   "mcpServers": {
     "godaddy-dns": {
       "command": "node",
-      "args": ["/absolute/path/to/godaddy-dns-mcp/dist/index.js"],
-      "env": {
-        "GODADDY_API_KEY": "your_api_key_here",
-        "GODADDY_API_SECRET": "your_api_secret_here"
-      }
+      "args": ["/absolute/path/to/godaddy-dns-mcp/dist/index.js"]
     }
   }
 }

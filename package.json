@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "GoDaddy DNS CNAME subdomain management via MCP server and OpenCode skill",
   "main": "dist/index.js",
+  "bin": {
+    "godaddy-dns-mcp": "./dist/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
